@@ -15,6 +15,8 @@ public class Employee {
     @Column(nullable = false)
     private String name;
 
+    private long teamId;
+
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
     private Role role;
@@ -25,14 +27,11 @@ public class Employee {
     @Column(nullable = false)
     private Date birthday;
 
-    public enum Role {
-        MANAGER, MEMBER
-    }
-
     public Employee() {}
 
-    public Employee(String name, Role role, Date workStartDate, Date birthday) {
+    public Employee(String name, long teamId, Role role, Date workStartDate, Date birthday) {
         this.name = name;
+        this.teamId = teamId;
         this.role = role;
         this.workStartDate = workStartDate;
         this.birthday = birthday;

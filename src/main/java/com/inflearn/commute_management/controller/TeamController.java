@@ -5,6 +5,8 @@ import com.inflearn.commute_management.dto.team.response.TeamFindResponse;
 import com.inflearn.commute_management.service.TeamService;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 public class TeamController {
     private final TeamService teamService;
@@ -19,7 +21,7 @@ public class TeamController {
     }
 
     @GetMapping("/team")
-    public TeamFindResponse findTeam(@RequestParam TeamFindResponse response) {
-        return response;
+    public List<TeamFindResponse> getTeams() {
+        return teamService.getTeams();
     }
 }
